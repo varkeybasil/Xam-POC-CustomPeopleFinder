@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:PeopleFinder" x:Class="PeopleFinder.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Label Text="{Binding SelectedPerson.name}" />
+            <local:PeopleFinderView  x:Name="View" HorizontalOptions="Center" People="{Binding SelectedPerson}" VerticalOptions="CenterAndExpand" Peoplepicked="newpersonpicked" />
+            <Button Text="click" Command="{Binding ClickCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

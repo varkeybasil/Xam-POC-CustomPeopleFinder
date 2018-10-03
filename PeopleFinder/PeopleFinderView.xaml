@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:PeopleFinder" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PeopleFinder.PeopleFinderView">
+    <ContentPage.BindingContext>
+        <local:PeopleFinderViewModel />
+    </ContentPage.BindingContext>
+    <ContentView.Content>
+        <FlexLayout Direction="Column">
+            <Entry Text="{Binding SearchText}" >
+            </Entry>
+            <Button Text="Search" Command="{Binding SearchCommand}">
+            </Button>
+            <ListView CachingStrategy="RecycleElement"  x:Name="RideAlongList" VerticalOptions="FillAndExpand" ItemTapped="rideAlongListItemTapped"  HorizontalOptions="FillAndExpand" HasUnevenRows="true" ItemsSource="{Binding EmployeeFilteredList, Mode=TwoWay}" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding name}">
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           
+        </FlexLayout>
+    </ContentView.Content>
+</ContentView>
