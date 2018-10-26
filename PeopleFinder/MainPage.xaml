@@ -4,11 +4,17 @@
         <local:MainPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            
-            <Label Text="{Binding SelectedPerson.name}" />
+        <StackLayout >
+            <Frame>
+                <StackLayout>
+                      <Label Text="MainPage"></Label>
+                        <Label Text="{Binding SelectedPerson.name}" />
+                </StackLayout>
+          
+             </Frame>
             <local:PeopleFinderView  x:Name="View" HorizontalOptions="Center" People="{Binding SelectedPerson}" VerticalOptions="CenterAndExpand" Peoplepicked="newpersonpicked" />
-            <Button Text="click" Command="{Binding ClickCommand}"></Button>
+
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

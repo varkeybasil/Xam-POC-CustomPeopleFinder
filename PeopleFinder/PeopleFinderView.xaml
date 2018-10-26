@@ -5,10 +5,16 @@
     </ContentPage.BindingContext>
     <ContentView.Content>
         <FlexLayout Direction="Column">
-            <Entry Text="{Binding SearchText}" >
+            <Frame >
+               <StackLayout>
+            <Label Text="Content View"></Label>
+            <Entry Text="{Binding SearchText}" Placeholder="Type a name eg; Luz" >
+                <Entry.Behaviors>
+                    <local:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchCommand}"/>
+                </Entry.Behaviors>
             </Entry>
-            <Button Text="Search" Command="{Binding SearchCommand}">
-            </Button>
+           <!-- <Button Text="Search" Command="{Binding SearchCommand}">-->
+           <!-- </Button>-->
             <ListView CachingStrategy="RecycleElement"  x:Name="RideAlongList" VerticalOptions="FillAndExpand" ItemTapped="rideAlongListItemTapped"  HorizontalOptions="FillAndExpand" HasUnevenRows="true" ItemsSource="{Binding EmployeeFilteredList, Mode=TwoWay}" Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -21,7 +27,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-           
+                    </StackLayout> 
+           </Frame>
         </FlexLayout>
     </ContentView.Content>
 </ContentView>
